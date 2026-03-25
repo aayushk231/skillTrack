@@ -28,8 +28,8 @@ Follow these steps to get a local copy of the project up and running.
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/your-username/skilltrack.git](https://github.com/your-username/skilltrack.git)
-cd skilltrack
+git clone https://github.com/<GITHUB_USERNAME>/skillTrack.git
+cd skillTrack
 ```
 
 ### 2. Install Dependencies
