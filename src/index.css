@@ -1,270 +1,261 @@
 :root {
-  /* Soothing Cream Palette with Darker Green Accents */
-  --primary: #4a6741;
-  /* Darker Forest/Moss Green */
-  --primary-hover: #3d5435;
-  /* Even deeper green for hover */
-  --secondary: #9e9587;
-  /* Warm muted taupe */
-  --danger: #b86b6b;
-  /* Muted terracotta red */
-  --success: #3d5435;
-  /* Matching the dark green for success */
-  --bg-color: #f7f3e9;
-  /* Classic Soothing Cream */
-  --card-bg: #ffffff;
-  /* Pure white for depth */
-  --text-main: #3e3a36;
-  /* Deep earth charcoal */
-  --border-light: #e0dbc7;
+	--primary: #4a6741;
+	--primary-hover: #3d5435;
+	--secondary: #9e9587;
+	--danger: #b86b6b;
+	--success: #3d5435;
+	--bg-color: #f7f3e9;
+	--card-bg: #ffffff;
+	--text-main: #3e3a36;
+	--border-light: #e0dbc7;
 }
 
 body {
-  margin: 0;
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-main);
-  -webkit-font-smoothing: antialiased;
+	margin: 0;
+	font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+	background-color: var(--bg-color);
+	color: var(--text-main);
+	-webkit-font-smoothing: antialiased;
 }
 
 .app-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 20px;
+	text-align: center;
 }
 
 /* Navbar */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 25px;
-  background: var(--card-bg);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  margin-bottom: 30px;
-  border: 1px solid var(--border-light);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 18px 25px;
+	background: var(--card-bg);
+	border-radius: 12px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+	margin-bottom: 30px;
+	border: 1px solid var(--border-light);
 }
 
 .navbar h2 {
-  margin: 0;
-  color: var(--primary);
-  font-weight: 700;
+	margin: 0;
+	color: var(--primary);
+	font-weight: 700;
 }
 
 .nav-links a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: var(--secondary);
-  font-weight: 600;
-  transition: color 0.2s;
+	margin-left: 20px;
+	text-decoration: none;
+	color: var(--secondary);
+	font-weight: 600;
+	transition: color 0.2s;
 }
 
 .nav-links a:hover {
-  color: var(--primary);
+	color: var(--primary);
 }
 
 /* Buttons */
 button {
-  padding: 12px 20px;
-  background-color: var(--primary);
-  color: #f7f3e9;
-  /* Cream text on dark green background */
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  font-weight: 600;
-  transition: all 0.2s ease;
+	padding: 12px 20px;
+	background-color: var(--primary);
+	color: #f7f3e9;
+
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 0.95rem;
+	font-weight: 600;
+	transition: all 0.2s ease;
 }
 
 button:hover {
-  background-color: var(--primary-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	background-color: var(--primary-hover);
+	transform: translateY(-1px);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .secondary-btn {
-  background-color: var(--secondary);
+	background-color: var(--secondary);
 }
 
 .secondary-btn:hover {
-  background-color: #8a8174;
+	background-color: #8a8174;
 }
 
 .delete-btn {
-  background-color: var(--danger);
+	background-color: var(--danger);
 }
 
 .delete-btn:hover {
-  background-color: #a35a5a;
+	background-color: #a35a5a;
 }
 
 /* Cards & Layout */
 .grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 25px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 25px;
 }
 
 .card {
-  background: var(--card-bg);
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  border: 1px solid var(--border-light);
+	background: var(--card-bg);
+	padding: 25px;
+	border-radius: 15px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+	border: 1px solid var(--border-light);
 }
 
 .card-actions {
-  margin-top: 20px;
-  display: flex;
-  gap: 10px;
+	margin-top: 20px;
+	display: flex;
+	gap: 10px;
 }
 
 .quiz-card {
-  text-align: center;
-  cursor: pointer;
-  transition: 0.3s;
+	text-align: center;
+	cursor: pointer;
+	transition: 0.3s;
 }
 
 .quiz-card:hover {
-  border-color: var(--primary);
-  transform: translateY(-3px);
+	border-color: var(--primary);
+	transform: translateY(-3px);
 }
 
 /* Form Elements */
 input[type="text"],
 textarea {
-  width: 100%;
-  padding: 15px;
-  border: 1px solid var(--border-light);
-  border-radius: 10px;
-  font-size: 1rem;
-  background-color: #fff;
-  color: var(--text-main);
-  box-sizing: border-box;
-  margin-bottom: 10px;
+	width: 100%;
+	padding: 15px;
+	border: 1px solid var(--border-light);
+	border-radius: 10px;
+	font-size: 1rem;
+	background-color: #fff;
+	color: var(--text-main);
+	box-sizing: border-box;
+	margin-bottom: 10px;
 }
 
 input:focus,
 textarea:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(74, 103, 65, 0.1);
+	outline: none;
+	border-color: var(--primary);
+	box-shadow: 0 0 0 3px rgba(74, 103, 65, 0.1);
 }
 
 /* Quiz Specifics */
 .timer {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--danger);
-  text-align: right;
-  padding: 8px 16px;
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: var(--danger);
+	text-align: right;
+	padding: 8px 16px;
 }
 
 .question-block {
-  background: #fff;
-  padding: 30px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-  border: 1px solid var(--border-light);
+	background: #fff;
+	padding: 30px;
+	border-radius: 15px;
+	margin-bottom: 20px;
+	border: 1px solid var(--border-light);
 }
 
 .option-label {
-  display: flex;
-  align-items: center;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: 0.2s;
+	display: flex;
+	align-items: center;
+	padding: 12px;
+	border-radius: 8px;
+	border: 1px solid transparent;
+	cursor: pointer;
+	transition: 0.2s;
 }
 
 .option-label:hover {
-  background: var(--bg-color);
-  border-color: var(--border-light);
+	background: var(--bg-color);
+	border-color: var(--border-light);
 }
 
 /* Progress & Results */
 .progress-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+	width: 100%;
+	border-collapse: collapse;
+	background: #fff;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 .progress-table th {
-  background: var(--primary);
-  color: #fff;
-  padding: 15px;
-  text-align: left;
+	background: var(--primary);
+	color: #fff;
+	padding: 15px;
+	text-align: left;
 }
 
 .progress-table td {
-  padding: 15px;
-  border-bottom: 1px solid var(--border-light);
+	padding: 15px;
+	border-bottom: 1px solid var(--border-light);
 }
 
 .score-board {
-  background: #fff;
-  padding: 40px;
-  border-radius: 20px;
-  display: inline-block;
-  border: 2px solid var(--primary);
-  margin: 20px 0;
+	background: #fff;
+	padding: 40px;
+	border-radius: 20px;
+	display: inline-block;
+	border: 2px solid var(--primary);
+	margin: 20px 0;
 }
 
 .score {
-  font-size: 2.5rem;
-  color: var(--primary);
-  font-weight: 800;
+	font-size: 2.5rem;
+	color: var(--primary);
+	font-weight: 800;
 }
 
 .review-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  border-left: 8px solid;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+	background: #fff;
+	padding: 20px;
+	border-radius: 12px;
+	margin-bottom: 15px;
+	border-left: 8px solid;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
 
 .correct-card {
-  border-left-color: var(--success);
+	border-left-color: var(--success);
 }
 
 .wrong-card {
-  border-left-color: var(--danger);
+	border-left-color: var(--danger);
 }
 
 .text-success {
-  color: var(--success);
-  font-weight: 700;
+	color: var(--success);
+	font-weight: 700;
 }
 
 .text-danger {
-  color: var(--danger);
-  font-weight: 700;
+	color: var(--danger);
+	font-weight: 700;
 }
 
 /* Utilities */
 .text-center {
-  text-align: center;
+	text-align: center;
 }
 
 .header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 30px;
 }
 
 .button-group {
-  display: flex;
-  gap: 15px;
-  margin-top: 25px;
-  justify-content: center;
+	display: flex;
+	gap: 15px;
+	margin-top: 25px;
+	justify-content: center;
 }

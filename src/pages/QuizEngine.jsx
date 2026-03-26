@@ -15,11 +15,10 @@ export default function QuizEngine() {
   useEffect(() => {
     // Load and shuffle questions, take only 5
     const topicData = quizData[topicId];
-    if (topicData && topicData.questions.length >= 5) { // NOTE: Make sure JSON has 5+ questions
+    if (topicData && topicData.questions.length >= 5) {
       const shuffled = shuffleArray(topicData.questions).slice(0, 5);
       setQuestions(shuffled);
     } else {
-      // Fallback for testing before you add 5 questions to JSON
       setQuestions(topicData ? topicData.questions : []); 
     }
   }, [topicId]);
@@ -44,7 +43,6 @@ export default function QuizEngine() {
       if (answers[q.id] === q.answer) correctCount++;
     });
 
-    // 1. Data strictly for the Progress Tracker (Local Storage)
     const historyData = {
       id: Date.now().toString(),
       topic: quizData[topicId].title,
@@ -57,14 +55,12 @@ export default function QuizEngine() {
     const progressHistory = JSON.parse(localStorage.getItem('progress')) || [];
     localStorage.setItem('progress', JSON.stringify([historyData, ...progressHistory]));
 
-    // 2. Extended Data for the Results Page (State only, not saved)
     const resultData = {
       ...historyData,
       questions: questions,
       userAnswers: answers
     };
 
-    // Navigate to results
     navigate('/quiz/results', { state: resultData });
   };
 

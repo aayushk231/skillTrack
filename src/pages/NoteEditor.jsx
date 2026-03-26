@@ -5,7 +5,7 @@ export default function NoteEditor() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const navigate = useNavigate();
-  const { id } = useParams(); // Determines if we are in Edit mode
+  const { id } = useParams();
 
   useEffect(() => {
     if (id) {
