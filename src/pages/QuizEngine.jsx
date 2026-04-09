@@ -1,26 +1,35 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import quizData from '../data/quizData.json';
-
-// Helper to shuffle questions
-const shuffleArray = (array) => [...array].sort(() => 0.5 - Math.random());
+import env from '../config/env.js';
 
 export default function QuizEngine() {
   const { topicId } = useParams();
   const navigate = useNavigate();
+  const [status, setStatus] = useState("fetched");
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState({});
   const [time, setTime] = useState(0);
+  const [title, setTitle] = useState("");
 
   useEffect(() => {
-    // Load and shuffle questions, take only 5
-    const topicData = quizData[topicId];
-    if (topicData && topicData.questions.length >= 5) {
-      const shuffled = shuffleArray(topicData.questions).slice(0, 5);
-      setQuestions(shuffled);
-    } else {
-      setQuestions(topicData ? topicData.questions : []); 
-    }
+    const fetchData = async () => {
+      setStatus("fetching");
+      try {
+        const res = await fetch(`${env.BE_URL}/question/${topicId}`);
+        if (!res.ok) {
+          setStatus("error");
+          return;
+        }
+        const result = await res.json();
+        setQuestions(result['data']);
+        setTitle(result['title']);
+        setStatus("fetched");
+      } catch (err) {
+        console.error(err);
+        setStatus("error");
+      }
+    };
+    fetchData();
   }, [topicId]);
 
   // Stopwatch timer
@@ -45,12 +54,13 @@ export default function QuizEngine() {
 
     const historyData = {
       id: Date.now().toString(),
-      topic: quizData[topicId].title,
+      topic: title,
       score: correctCount,
       total: questions.length,
       timeTaken: time,
       date: new Date().toLocaleDateString()
     };
+    console.log(historyData);
 
     const progressHistory = JSON.parse(localStorage.getItem('progress')) || [];
     localStorage.setItem('progress', JSON.stringify([historyData, ...progressHistory]));
@@ -64,7 +74,8 @@ export default function QuizEngine() {
     navigate('/quiz/results', { state: resultData });
   };
 
-  if (questions.length === 0) return <p>Loading questions...</p>;
+  if (status === "error") return <p>Error Retriving Questions...</p>;
+  else if (status === "fetching") return <p>Loading Questions... Please Wait..</p>
 
   // Format time as MM:SS
   const formattedTime = `${Math.floor(time / 60).toString().padStart(2, '0')}:${(time % 60).toString().padStart(2, '0')}`;
@@ -72,7 +83,7 @@ export default function QuizEngine() {
   return (
     <div className="quiz-container">
       <div className="quiz-header">
-        <h2>{quizData[topicId].title} Quiz</h2>
+        <h2>{title} Quiz</h2>
         <div className="timer">⏱ {formattedTime}</div>
       </div>
       
