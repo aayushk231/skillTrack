@@ -9,16 +9,11 @@ app.use(cors({
     origin: env.FE_URL
 }));
 
-
-app.use((req, res, next) => {
-    console.log('url: ', req.originalUrl);
-    next()
-})
-
 app.use('/question', questions);
 app.use('/topics', topics);
-app.get('/', (req, res) => {
-    res.send("hello");
+
+app.get('/health', (req, res) => {
+    res.send("alive");
 })
 
 export default app;
