@@ -1,28 +1,31 @@
 import { useNavigate } from 'react-router-dom';
 import env from '../config/env';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function TopicList() {
   const navigate = useNavigate();
   const [topics, setTopics] = useState({});
   const [status, setStatus] = useState("success");
 
-  const fetchTopics = async () => {
-    try {
-      const res = await fetch(`${env.BE_URL}/topics`);
-      if (!res.ok){
+  useEffect(() => {
+    const fetchTopics = async () => {
+      try {
+        const res = await fetch(`${env.BE_URL}/topics`);
+        if (!res.ok){
+          setStatus("error");
+          return;
+        }
+        const result = await res.json();
+        setTopics(result.data);
+        setStatus("success");
+      } catch (err) {
+        console.log(err);
         setStatus("error");
-        return;
       }
-      const result = await res.json();
-      setTopics(result.data);
-      setStatus("success");
-    } catch (err) {
-      console.log(err);
-      setStatus("error");
+      return;
     }
-  }
-  fetchTopics();
+    fetchTopics();
+  }, []);
   
   if (status === "error") return <p>Error in Retriving topics</p>;
   return (
